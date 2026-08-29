@@ -1,13 +1,16 @@
 variable "aws_region" {
-  type    = string
-  default = "us-east-1"
+  description = "AWS region to deploy resources into"
+  type        = string
+  default     = "us-east-1"
 }
 
 variable "site_bucket_name" {
-  type = string
+  description = "Name of the S3 bucket that will host the static site"
+  type        = string
 }
 
 variable "domain_name" {
-  type    = string
-  default = null
+  description = "Optional custom domain for the CloudFront distribution"
+  type        = string
+  default     = null
 }

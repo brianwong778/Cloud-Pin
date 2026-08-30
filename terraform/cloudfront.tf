@@ -27,5 +27,13 @@ resource "aws_cloudfront_distribution" "site" {
     }
   }
 
+  viewer_certificate {
+    cloudfront_default_certificate = true
+  }
+
+  tags = {
+    Project = "cloud-pin-1"
+  }
+
 }
 

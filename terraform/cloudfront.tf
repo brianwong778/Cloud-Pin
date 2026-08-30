@@ -1,6 +1,6 @@
 resource "aws_cloudfront_distribution" "site" {
   enabled             = true
-  default_root_object = "Index.html" # First page to serve
+  default_root_object = "index.html" # First page to serve
 
   origin {
     domain_name              = aws_s3_bucket.site.bucket_regional_domain_name
@@ -10,7 +10,7 @@ resource "aws_cloudfront_distribution" "site" {
 
   default_cache_behavior {
     target_origin_id        = "s3-origin"
-    viewers_protocol_policy = "redirect-to-https"
+    viewer_protocol_policy = "redirect-to-https"
 
     # Since this is just a static page: 
     allowed_methods = ["GET", "HEAD"]

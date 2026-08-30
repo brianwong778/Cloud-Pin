@@ -9,7 +9,7 @@ resource "aws_cloudfront_distribution" "site" {
   }
 
   default_cache_behavior {
-    target_origin_id        = "s3-origin"
+    target_origin_id       = "s3-origin"
     viewer_protocol_policy = "redirect-to-https"
 
     # Since this is just a static page: 

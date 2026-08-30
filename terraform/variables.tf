@@ -10,7 +10,8 @@ variable "site_bucket_name" {
 }
 
 variable "domain_name" {
-  description = "Optional custom domain for the CloudFront distribution"
+  description = "my personal domain name"
   type        = string
-  default     = null
+  default     = "brianprojects.com"
 }
+

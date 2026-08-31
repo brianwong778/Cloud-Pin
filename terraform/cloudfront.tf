@@ -11,22 +11,23 @@ resource "aws_cloudfront_distribution" "site" {
   default_cache_behavior {
     target_origin_id       = "s3-origin"
     viewer_protocol_policy = "redirect-to-https"
-    # -----------------------------
-    # Hosted Zone Lookup
-    # -----------------------------
-    data "aws_route53_zone" "primary" {
-      name         = var.domain_name
-      private_zone = false
-    }
-
-    # Since this is just a static page: 
-    allowed_methods = ["GET", "HEAD"]
-    cached_methods  = ["GET", "HEAD"]
-
-    compress = true
-
-    cache_policy_id = "658327ea-f89d-4fab-a63d-7e88639e58f6" # AWS Managed: CachingOptimized
   }
+  # -----------------------------
+  # Hosted Zone Lookup
+  # -----------------------------
+  data "aws_route53_zone" "primary" {
+    name         = var.domain_name
+    private_zone = false
+  }
+
+  # Since this is just a static page: 
+  allowed_methods = ["GET", "HEAD"]
+  cached_methods  = ["GET", "HEAD"]
+
+  compress = true
+
+  cache_policy_id = "658327ea-f89d-4fab-a63d-7e88639e58f6" # AWS Managed: CachingOptimized
+
 
   restrictions {
     geo_restriction {

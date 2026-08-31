@@ -9,9 +9,6 @@ resource "aws_s3_bucket_public_access_block" "site" {
   ignore_public_acls      = true
   restrict_public_buckets = true
 
-  tags = {
-    Project = "cloud-pin-1"
-  }
 }
 
 resource "aws_cloudfront_origin_access_control" "oac" {
@@ -20,9 +17,7 @@ resource "aws_cloudfront_origin_access_control" "oac" {
   signing_behavior                  = "always"
   signing_protocol                  = "sigv4"
 
-  tags = {
-    Project = "cloud-pin-1"
-  }
+
 }
 
 data "aws_iam_policy_document" "site" {

@@ -39,9 +39,6 @@ resource "aws_route53_record" "brianprojects_validation" {
   ttl     = 60
   records = [each.value.record]
 
-  tags = {
-    Project = "cloud-pin-1"
-  }
 }
 
 # -----------------------------

@@ -12,21 +12,21 @@ resource "aws_cloudfront_distribution" "site" {
     target_origin_id       = "s3-origin"
     viewer_protocol_policy = "redirect-to-https"
 
+    allowed_methods = ["GET", "HEAD"]
+    cached_methods  = ["GET", "HEAD"]
+
+    compress        = true
+    cache_policy_id = "658327ea-f89d-4fab-a63d-7e88639e58f6"
+
+    response_headers_policy_id = "67f7725c-6f97-4210-82d7-5512b31e9d03"
+
     forwarded_values {
       query_string = false
-
       cookies {
         forward = "none"
       }
     }
-
-    # Since this is just a static page: 
-    allowed_methods = ["GET", "HEAD"]
-    cached_methods  = ["GET", "HEAD"]
-
   }
-
-
 
   restrictions {
     geo_restriction {

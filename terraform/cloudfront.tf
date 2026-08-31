@@ -1,6 +1,6 @@
 resource "aws_cloudfront_distribution" "site" {
   enabled             = true
-  default_root_object = "index.html" # First page to serve
+  default_root_object = "finalBoard.html" # First page to serve
 
   origin {
     domain_name              = aws_s3_bucket.site.bucket_regional_domain_name

@@ -20,7 +20,4 @@ resource "aws_route53_record" "cloudpin_alias" {
     evaluate_target_health = false
   }
 
-  tags = {
-    Project = "cloud-pin-1"
-  }
 }

@@ -12,6 +12,13 @@ resource "aws_cloudfront_distribution" "site" {
     target_origin_id       = "s3-origin"
     viewer_protocol_policy = "redirect-to-https"
 
+    forwarded_values {
+      query_string = false
+
+      cookies {
+        forward = "none"
+      }
+    }
 
     # Since this is just a static page: 
     allowed_methods = ["GET", "HEAD"]

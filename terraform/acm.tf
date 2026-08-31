@@ -32,12 +32,12 @@ resource "aws_route53_record" "brianprojects_validation" {
       record = dvo.resource_record_value
     }
   }
-
-  zone_id = data.aws_route53_zone.primary.zone_id
-  name    = each.value.name
-  type    = each.value.type
-  ttl     = 60
-  records = [each.value.record]
+  allow_overwrite = true
+  zone_id         = data.aws_route53_zone.primary.zone_id
+  name            = each.value.name
+  type            = each.value.type
+  ttl             = 60
+  records         = [each.value.record]
 
 }
 
